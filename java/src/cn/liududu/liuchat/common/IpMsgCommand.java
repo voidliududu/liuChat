@@ -31,4 +31,7 @@ public class IpMsgCommand {
     public static final int IPMSG_ACCEPTFILEDATA = 99; //同意文件发送请求
     public static final int IPMSG_DECLINEFILEDATA = 100; //拒绝文件发送请求
 
+
+    public static final int IPMSG_SENDIMG = 101;
+
 }

@@ -35,7 +35,9 @@ public class SendFileServer implements Runnable {
     {
         try {
             //创建服务器socket
-            ss = new ServerSocket(MONITORPORT);
+            if (ss != null) {
+                ss = new ServerSocket(MONITORPORT);
+            }
             boolean flag = true;
             while (flag && trigger)
             {

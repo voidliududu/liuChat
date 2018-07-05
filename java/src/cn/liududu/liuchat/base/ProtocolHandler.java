@@ -1,5 +1,6 @@
 package cn.liududu.liuchat.base;
 
+import cn.liududu.liuchat.common.ImageEncoder;
 import cn.liududu.liuchat.common.IpMsgCommand;
 import cn.liududu.liuchat.common.Logger;
 import cn.liududu.liuchat.entity.IpMsg;
@@ -40,6 +41,15 @@ public class ProtocolHandler {
         IpMsg ipMsg = new IpMsg(me.getName(),IpMsgCommand.IPMSG_SENDMSG);
         ipMsg.setAddr(user.getIpAddr());
         ipMsg.setText(msg);
+        us.sendMsg(ipMsg.toDatagramPacket());
+    }
+    /**
+    * 发送图片
+    * */
+    public void sendImage(User me,User user,File image) {
+        IpMsg ipMsg = new IpMsg(me.getName(),IpMsgCommand.IPMSG_SENDIMG);
+        ipMsg.setAddr(user.getIpAddr());
+        ipMsg.setText(ImageEncoder.encodeImgageToBase64(image));
         us.sendMsg(ipMsg.toDatagramPacket());
     }
     /**

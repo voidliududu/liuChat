@@ -29,7 +29,11 @@ public class UdpService extends Thread
         try {
 //            InetAddress ia = InetAddress.getByName(Config.serveHost);
 //            Logger.log(ia.toString());
+
+
 //            ds = new DatagramSocket(Config.udpPort,InetAddress.getByName(Config.serveHost));
+
+
 //            Logger.log("配置地址" + ia.toString());
 //            ds = new DatagramSocket(Config.udpPort,ia);
 //            ds = new DatagramSocket(Config.udpPort,InetAddress.getByName(Config.serveHost));
@@ -41,9 +45,10 @@ public class UdpService extends Thread
             Logger.log("端口或地址被占用");
             JOptionPane.showMessageDialog(null,"端口或地址被占用,程序将退出");
             System.exit(0);
-        }/* catch (UnknownHostException e) {
-            Logger.log("本机地址未知");
-        }*/
+        }
+//        catch (UnknownHostException e) {
+//            Logger.log("本机地址未知");
+//        }
     }
     /**
     * 单例化

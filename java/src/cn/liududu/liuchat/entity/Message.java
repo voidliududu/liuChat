@@ -8,14 +8,24 @@ public class Message {
     private String address;
     private String text;
     private Date date;
+    private int type;
+    public static final int TEXT = 0;
+    public static final int IMG = 1;
 
     public Message(String from, String address, String text) {
         this.address = address;
         this.from = from;
         this.text = text;
         this.date = new Date();
+        this.type = TEXT;
     }
-
+    public Message(String from, String address, String text,int type) {
+        this.address = address;
+        this.from = from;
+        this.text = text;
+        this.date = new Date();
+        this.type = type;
+    }
     public String getFrom() {
         return from;
     }
@@ -44,7 +54,12 @@ public class Message {
         this.text = text;
     }
 
-    public void setDate(Date date) {
+    public void setDate(Date date)
+    {
         this.date = date;
+    }
+
+    public int getType() {
+        return type;
     }
 }

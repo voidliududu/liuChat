@@ -2,7 +2,9 @@ package cn.liududu.liuchat.base;
 
 import cn.liududu.liuchat.common.Config;
 import cn.liududu.liuchat.common.Logger;
+import cn.liududu.liuchat.view.MainWindow;
 
+import javax.swing.*;
 import java.io.*;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
@@ -61,8 +63,7 @@ class SendFileClient extends Thread{
             System.err.println(size);
             fosbuf.flush();
             Logger.log("close connect");
-            data = 100;
-            while(data > 0) data--;
+            JOptionPane.showMessageDialog(MainWindow.getInstance(),"文件接受成功，保存在file_recv目录下");
             is.close();
             so.close();
             fos.close();

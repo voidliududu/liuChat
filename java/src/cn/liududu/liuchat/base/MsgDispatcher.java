@@ -60,6 +60,11 @@ public class MsgDispatcher {
         Message message = new Message(ipMsg.getNickname(),ipMsg.getAddr().toString().split("/")[1],ipMsg.getText());
         new MessageListener().messageCome(message);
     }
+
+    public void receiveImageResponse(IpMsg ipMsg) {
+        Message message = new Message(ipMsg.getNickname(),ipMsg.getAddr().toString().split("/")[1],ipMsg.getText(),Message.IMG);
+        new MessageListener().messageCome(message);
+    }
     /**
      *收到列表回复的响应
      *

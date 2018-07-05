@@ -2,6 +2,7 @@ package cn.liududu.liuchat.view;
 
 import cn.liududu.liuchat.common.Theme;
 import cn.liududu.liuchat.listener.FileButtonListener;
+import cn.liududu.liuchat.listener.ImageButtonListener;
 import cn.liududu.liuchat.listener.MessageSubmitListener;
 
 import javax.swing.*;
@@ -14,6 +15,7 @@ public class TextBar extends JPanel {
     private JTextArea jta;
     private JButton submit;
     private JButton sendFile;
+    private JButton sendImg;
 
     public TextBar() {
         this.setLayout(new BorderLayout());
@@ -32,7 +34,13 @@ public class TextBar extends JPanel {
         sendFile.setBackground(Color.decode(Theme.ButtonBackgroundColor));
         sendFile.setForeground(Color.WHITE);
         sendFile.addActionListener(new FileButtonListener());
+
+        sendImg = new JButton("发送图片");
+        sendImg.setBackground(Color.decode(Theme.ButtonBackgroundColor));
+        sendImg.setForeground(Color.WHITE);
+        sendImg.addActionListener(new ImageButtonListener());
         headBar.add(sendFile);
+        headBar.add(sendImg);
         headBar.add(submit);
 
         this.add(headBar,"South");

@@ -25,7 +25,7 @@ public class IpMsg {
     *
     * */
     private void resolveIpMsg(String msg) throws UnresolvedMsgStringException{
-        String[] words = msg.split(":");
+        String[] words = msg.split(Config.splitChar);
         if (words.length < 5) {
             throw new UnresolvedMsgStringException();
         }
@@ -62,10 +62,10 @@ public class IpMsg {
     *
     * */
     public DatagramPacket toDatagramPacket() {
-        String msg = new Integer(version).toString() + ":"
-                + new Integer(no).toString() + ":"
-                + nickname + ":"
-                + new Integer(command).toString() + ":"
+        String msg = new Integer(version).toString() + Config.splitChar
+                + new Integer(no).toString() +  Config.splitChar
+                + nickname +  Config.splitChar
+                + new Integer(command).toString() +  Config.splitChar
                 + text;
         byte[] bitmsg = msg.getBytes();
         DatagramPacket dp = new DatagramPacket(bitmsg,bitmsg.length);

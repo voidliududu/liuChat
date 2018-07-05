@@ -15,6 +15,7 @@ public class Theme {
     public static final String ChatFrameBackgroundColor = "#cfd8dc";
     public static final String ButtonBackgroundColor = "#2e96f3";
     public static final String MessageBubbleBackgroundColor = "#ffffff";
+    public static final String MessageBubbleColor = "#76ff03";
     public static final String NotifiedContactsItemBackgroundColor = "#eeeeee";
 
 }

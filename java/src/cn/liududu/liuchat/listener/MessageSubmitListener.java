@@ -10,6 +10,7 @@ import cn.liududu.liuchat.view.MainWindow;
 import cn.liududu.liuchat.view.MessageBox;
 import cn.liududu.liuchat.view.TextBar;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.InetAddress;
@@ -22,6 +23,10 @@ public class MessageSubmitListener implements ActionListener {
         MainWindow mainWindow = MainWindow.getInstance();
         User receiver = mainWindow.getSessionUser();
         String text = textBar.getText();
+        if (text.indexOf(Config.splitChar) != -1) {
+            JOptionPane.showMessageDialog(MainWindow.getInstance(),"消息中含非法字符");
+            return;
+        }
         if (receiver == null) {
             IpMsgLayer.getInstance().getPh().sendAll(User.getCurrentUser(),text);
             textBar.clearText();
